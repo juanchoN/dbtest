@@ -14,7 +14,7 @@ $query = "SELECT * from users" or die("Error in the consult.." . mysqli_error($c
 
 echo "Hola qué tal. La lista de usuarios es ésta: <br>";
 $rs = $connection->query($query);
-$numeroUsuarios = 1;
+$numeroUsuarios = 0;
 while ($row = mysqli_fetch_assoc($rs)) {
     $numeroUsuarios++;
     echo "User Id: ".$row['user_id'] . " User Name: " . $row['username'] . "<br>";
