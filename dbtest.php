@@ -12,11 +12,17 @@ $connection = mysqli_connect($dbhost.":".$dbport, $dbuser, $dbpwd, $dbname) or d
 
 $query = "SELECT * from users" or die("Error in the consult.." . mysqli_error($connection));
 
-echo "Hello All.. Here is the list of users: <br>";
+echo "Hola qué tal. La lista de usuarios es ésta: <br>";
 $rs = $connection->query($query);
+$numeroUsuarios = 1;
 while ($row = mysqli_fetch_assoc($rs)) {
+    $numeroUsuarios++;
     echo "User Id: ".$row['user_id'] . " User Name: " . $row['username'] . "<br>";
 }
+if ($numeroUsuarios == 0) {
+  echo "No hay usuarios<br>";
+}
+ 
 echo "End of the list <br>";
 
 mysqli_close($connection);
